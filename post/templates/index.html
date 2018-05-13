@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<h1 style="padding: 10px; text-align: center;">Группа slug( {{ group.slug }} )</h1>
+	<div style="padding: 5px; ">
+		<form action="{% url 'index' %}" method='post'>
+			{{ form.as_p }}
+			{% csrf_token %}
+		<input type="submit" value="add">
+		</form>
+			
+	</div>
+	<div class="urls">
+		{% for group in groups %}
+			<p>url: <a href="{{ group.get_absolute_url }}">{{group.slug}}</a></p>
+		{% endfor %}
+	</div>
+{% endblock %}

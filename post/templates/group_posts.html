@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<h1 style="padding: 10px; text-align: center;">Группа slug( {{ group.slug }} )</h1>
+	<div style="padding: 5px; ">
+		{% for post in posts %}
+			<p style="color: red;">url: {{post.url}}</p>
+			<p>text: {{post.text}}</p>
+			<p>likes: {{post.likes}}</p>
+			<p>comments: {{post.comments}}</p>
+			<p>views: {{post.views}}</p>
+			<p>reposts: {{post.reposts}}</p>
+		{% endfor %}
+	</div>
+{% endblock %}
