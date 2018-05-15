@@ -1,6 +1,17 @@
 {% extends 'base.html' %}
+{% load socialaccount %}
+{% load account %}
+
 
 {% block content %}
+	{% if request.user.is_authenticated %}
+		<h3 style="padding: 10px; color: brown;">Привет: {{request.user.first_name}}</h3>
+		<a href="{% url 'account_logout' %}" style="">Выход</a>
+	{% else %}
+		<h1 style="padding: 10px;">Войдите на сайт через ВК</h1>
+		<a href="{% provider_login_url "vk" method="oauth2" %}"> Войти через VK </a>
+	{% endif %}
+
 	<h1 style="padding: 10px; text-align: center;">Группа slug( {{ group.slug }} )</h1>
 	<div style="padding: 5px; ">
 		<form action="{% url 'index' %}" method='post'>

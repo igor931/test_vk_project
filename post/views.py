@@ -8,12 +8,11 @@ from post.forms import *
 class Index(FormView):
 	def post(self, request):
 		template_name = 'index.html'
-		print('delay')
 		slug = request.POST.get('slug')
-		print(slug)
-		test.delay(slug)
-		#group = Group.objects.get(slug=slug)	
-		return redirect('/post/')
+		result = test.delay(slug)
+		result.wait()
+		group = Group.objects.get(slug=slug)	
+		return redirect(group.get_absolute_url())
 	
 	def get(self, request):
 		template_name = 'index.html'
@@ -21,6 +20,7 @@ class Index(FormView):
 		form = GroupForm()
 		context = {'form': form, 'groups': groups}
 		return render(request, 'index.html', context)
+
 
 def get_obj(request):
 	slug = 'tvoy171090'
