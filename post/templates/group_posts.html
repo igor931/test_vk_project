@@ -5,6 +5,7 @@
 	<div style="padding: 5px; ">
 		{% for post in posts %}
 			<p style="color: red;">url: {{post.url}}</p>
+			<p style="color: blue;">date: {{ post.created }}</p>
 			<p>text: {{post.text}}</p>
 			<p>likes: {{post.likes}}</p>
 			<p>comments: {{post.comments}}</p>

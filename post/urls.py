@@ -7,7 +7,8 @@ urlpatterns = [
     url(r'^login/', login),
     url(r'^accounts/', include('allauth.urls')),
     url(r'^(?P<slug>[-\w]+)/$', group_posts, name='group_posts'),
+    url(r'^(?P<slug>[-\w]+)/(?P<month>\d{2})/(?P<day>\d{2})/$', report_posts, name='report_posts'),
     #url(r'^social/$', include('social_auth_urls')),
-    url(r'^social/', include('social.apps.django_app.urls', namespace='social')),
+    #url(r'^social/', include('social.apps.django_app.urls', namespace='social')),
     
 ]

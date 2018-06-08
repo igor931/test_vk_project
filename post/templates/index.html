@@ -26,4 +26,10 @@
 			<p>url: <a href="{{ group.get_absolute_url }}">{{group.slug}}</a></p>
 		{% endfor %}
 	</div>
+	<h3>Отчеты</h3>
+	<div class="urls">
+		{% for report in reports %}
+			<p>Date: {{report.created}}<a href="{{ report.get_absolute_url }}">{{report.slug}}</a></p>
+		{% endfor %}
+	</div>
 {% endblock %}

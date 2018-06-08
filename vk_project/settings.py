@@ -41,8 +41,8 @@ INSTALLED_APPS = [
     'post',
     'django_celery_beat',
     'django_celery_results',
-    'social_django',
-    'social.apps.django_app.default',
+    #'social_django',
+    #'social.apps.django_app.default',
     'allauth.socialaccount.providers.vk',
 
     'allauth',
@@ -83,8 +83,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'social_django.context_processors.backends',
-                'social_django.context_processors.login_redirect',
+                #'social_django.context_processors.backends',
+                #'social_django.context_processors.login_redirect',
                 'django.template.context_processors.request',
             ],
         },
@@ -95,7 +95,6 @@ TEMPLATES = [
 AUTHENTICATION_BACKENDS = (
     # Needed to login by username in Django admin, regardless of `allauth`
     'django.contrib.auth.backends.ModelBackend',
-
     # `allauth` specific authentication methods, such as login by e-mail
     'allauth.account.auth_backends.AuthenticationBackend',
 )
@@ -104,9 +103,6 @@ AUTHENTICATION_BACKENDS = (
 WSGI_APPLICATION = 'vk_project.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/1.10/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -114,9 +110,6 @@ DATABASES = {
     }
 }
 
-
-# Password validation
-# https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -134,9 +127,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Internationalization
-# https://docs.djangoproject.com/en/1.10/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -150,16 +140,9 @@ USE_TZ = True
 
 CELERY_TIMEZONE = TIME_ZONE
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
 
-AUTHENTICATION_BACKENDS = (
-    'social_core.backends.vk.VKOAuth2',
-    'social_core.backends.vk.VKAppOAuth2',
-    'django.contrib.auth.backends.ModelBackend',
-)
 
 SOCIAL_AUTH_VK_OAUTH2_KEY = '6475437'
 SOCIAL_AUTH_VK_OAUTH2_SECRET = '30gDRGYayFVtbjcftEXZ'
